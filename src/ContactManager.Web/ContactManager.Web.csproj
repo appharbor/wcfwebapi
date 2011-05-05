@@ -61,6 +61,12 @@
     <Reference Include="Microsoft.ServiceModel.Web.jQuery">
       <HintPath>..\packages\JsonValue.0.3.0\lib\40\Microsoft.ServiceModel.Web.jQuery.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\SisoDb.2.1\lib\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SisoDb">
+      <HintPath>..\packages\SisoDb.2.1\lib\SisoDb.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\..\lib\structuremap\StructureMap.dll</HintPath>
     </Reference>
