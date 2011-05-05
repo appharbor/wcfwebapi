@@ -11,11 +11,6 @@ namespace ContactManager.Web
 	{
 		private readonly IContactRepository _repository;
 
-		public ContactsResource()
-		{
-			_repository = new ContactRepository();
-		}
-
 		public ContactsResource(IContactRepository repository)
 		{
 			_repository = repository;
