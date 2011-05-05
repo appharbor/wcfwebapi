@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using ContactManager.Web.Infrastructure;
+using Microsoft.ApplicationServer.Http;
 
 namespace ContactManager.Web
 {
@@ -23,10 +24,11 @@ namespace ContactManager.Web
 		}
 
 		[WebInvoke(Method = "POST", UriTemplate = "")]
-		public Contact Post(Contact contact)
+		public HttpResponseMessage Post(Contact contact)
 		{
 			_repository.Post(contact);
-			return contact;
+			var response = new HttpResponseMessage<Contact>(contact);
+			return response;
 		}
 	}
 }
