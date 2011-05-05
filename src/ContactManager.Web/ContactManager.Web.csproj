@@ -98,6 +98,7 @@
     <Compile Include="Infrastructure\ContactRepository.cs" />
     <Compile Include="Infrastructure\IContactRepository.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="PostStatusCodeMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
