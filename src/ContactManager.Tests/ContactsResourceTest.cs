@@ -27,5 +27,13 @@ namespace ContactManager.Tests
 			var contacts = _resource.Get().Select(x => x.Name);
 			Assert.Equal("Foo Bar", contacts.First());
 		}
+
+		[Fact]
+		public void When_POST_then_contact_is_added()
+		{
+			var contact = new Contact { Name = "Foo Bar" };
+			_resource.Post(contact);
+			_repository.Verify(x => x.Post(contact));
+		}
 	}
 }
