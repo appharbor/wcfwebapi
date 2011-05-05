@@ -10,7 +10,7 @@ namespace ContactManager.Web.Infrastructure
 	{
 		private readonly ISisoDatabase _database;
 
-		private SisoDbContactRepository()
+		public SisoDbContactRepository()
 		{
 			string connectionString = WebConfigurationManager.ConnectionStrings["default"]
 				.ConnectionString;
