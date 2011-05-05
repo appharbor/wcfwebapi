@@ -27,7 +27,7 @@ namespace ContactManager.Web
 			container.Configure(x =>
 			{
 				x.For<IContactRepository>()
-					.Use<ContactRepository>();
+					.Use(y => new ContactRepository());
 			});
 
 			var configuration = HttpHostConfiguration.Create()
