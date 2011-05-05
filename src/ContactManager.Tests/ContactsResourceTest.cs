@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using ContactManager.Web;
 using ContactManager.Web.Infrastructure;
 using Moq;
@@ -34,6 +35,14 @@ namespace ContactManager.Tests
 			var contact = new Contact { Name = "Foo Bar" };
 			_resource.Post(contact);
 			_repository.Verify(x => x.Post(contact));
+		}
+
+		[Fact]
+		public void When_POST_then_status_is_created()
+		{
+			var contact = new Contact { Name = "Foo Bar" };
+			var response = _resource.Post(contact);
+			Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 		}
 	}
 }
