@@ -9,15 +9,16 @@ namespace ContactManager.Tests
 {
 	public class ContactsResourceTest
 	{
+		private readonly Mock<IContactRepository> _repository;
 		private readonly ContactsResource _resource;
 
 		public ContactsResourceTest()
 		{
-			var repository = new Mock<IContactRepository>();
+			_repository = new Mock<IContactRepository>();
 			var fakeContacts = new List<Contact>();
 			fakeContacts.Add(new Contact { Name = "Foo Bar" });
-			repository.Setup(x => x.GetAll()).Returns(fakeContacts);
-			_resource = new ContactsResource(repository.Object);
+			_repository.Setup(x => x.GetAll()).Returns(fakeContacts);
+			_resource = new ContactsResource(_repository.Object);
 		}
 
 		[Fact]
