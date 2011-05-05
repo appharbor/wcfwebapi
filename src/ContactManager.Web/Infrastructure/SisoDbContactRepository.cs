@@ -41,7 +41,11 @@ namespace ContactManager.Web.Infrastructure
 
 		public void Post(Contact contact)
 		{
-			throw new NotImplementedException();
+			using (var session = _database.CreateUnitOfWork())
+			{
+				session.Insert(contact);
+				session.Commit();
+			}
 		}
 
 		public void Delete(int id)
