@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.ServiceModel;
@@ -29,6 +30,7 @@ namespace ContactManager.Web
 		{
 			_repository.Post(contact);
 			var response = new HttpResponseMessage<Contact>(contact, HttpStatusCode.Created);
+			response.Headers.Location = new Uri(contact.Self, UriKind.Relative);
 			return response;
 		}
 	}
