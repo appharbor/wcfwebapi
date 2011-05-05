@@ -21,7 +21,7 @@ namespace ContactManager.Web
 		}
 
 		[WebGet(UriTemplate = "{contactId}")]
-		public Contact Get(int contactId)
+		public Contact GetSingle(int contactId)
 		{
 			var contact = _repository.Get(contactId);
 			if (contact == null)
