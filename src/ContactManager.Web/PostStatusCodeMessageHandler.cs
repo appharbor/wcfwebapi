@@ -7,7 +7,7 @@ namespace ContactManager.Web
 {
 	public class PostStatusCodeMessageHandler : DelegatingChannel
 	{
-		public PostStatusCodeMessageHandler(DelegatingChannel innerChannel)
+		public PostStatusCodeMessageHandler(HttpMessageChannel innerChannel)
 			: base(innerChannel)
 		{
 		}
