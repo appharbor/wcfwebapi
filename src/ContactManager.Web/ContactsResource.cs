@@ -29,7 +29,7 @@ namespace ContactManager.Web
 		public HttpResponseMessage Post(Contact contact)
 		{
 			_repository.Post(contact);
-			var response = new HttpResponseMessage<Contact>(contact, HttpStatusCode.Created);
+			var response = new HttpResponseMessage<Contact>(contact);
 			response.Headers.Location = new Uri(contact.Self, UriKind.Relative);
 			return response;
 		}
