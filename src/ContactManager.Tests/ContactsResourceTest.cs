@@ -44,5 +44,15 @@ namespace ContactManager.Tests
 			var response = _resource.Post(contact);
 			Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 		}
+
+		[Fact]
+		public void When_POST_then_location_is_set()
+		{
+			_repository.Setup(x => x.Post(It.IsAny<Contact>()))
+				.Callback<Contact>(x => x.ContactId = 1);
+			var contact = new Contact { Name = "Foo Bar" };
+			var response = _resource.Post(contact);
+			Assert.Equal("/contact/1", response.Headers.Location.OriginalString);
+		}
 	}
 }
