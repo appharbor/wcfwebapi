@@ -31,7 +31,8 @@ namespace ContactManager.Web
 			});
 
 			var configuration = HttpHostConfiguration.Create()
-				.SetResourceFactory((t, i, m) => container.GetInstance(t), (i, o) => { });
+				.SetResourceFactory((t, i, m) => container.GetInstance(t), (i, o) => { })
+				.AddMessageHandlers(typeof(PostStatusCodeMessageHandler));
 
 			RouteTable.Routes.MapServiceRoute<ContactsResource>("contacts", configuration);
 		}
