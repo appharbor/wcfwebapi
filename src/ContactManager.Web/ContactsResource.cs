@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -28,6 +29,7 @@ namespace ContactManager.Web
 		{
 			_repository.Post(contact);
 			var response = new HttpResponseMessage<Contact>(contact);
+			response.StatusCode = HttpStatusCode.Created;
 			return response;
 		}
 	}
