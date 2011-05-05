@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using ContactManager.Web.Infrastructure;
 using Microsoft.ApplicationServer.Http;
+using Microsoft.ApplicationServer.Http.Dispatcher;
 
 namespace ContactManager.Web
 {
@@ -17,6 +18,18 @@ namespace ContactManager.Web
 		public ContactsResource(IContactRepository repository)
 		{
 			_repository = repository;
+		}
+
+		[WebGet(UriTemplate = "{contactId}")]
+		public Contact Get(int contactId)
+		{
+			var contact = _repository.Get(contactId);
+			if (contact == null)
+			{
+				throw new HttpResponseException(HttpStatusCode.NotFound);
+			}
+
+			return contact;
 		}
 
 		[WebGet(UriTemplate = "")]
