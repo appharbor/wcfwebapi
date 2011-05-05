@@ -2,7 +2,7 @@
 //   Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 
-namespace ContactManager
+namespace ContactManager.Web.Infrastructure
 {
 	using System.Collections.Generic;
 
