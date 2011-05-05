@@ -27,7 +27,7 @@ namespace ContactManager.Web
 			container.Configure(x =>
 			{
 				x.For<IContactRepository>()
-					.Use(y => new ContactRepository());
+					.Use<SisoDbContactRepository>();
 			});
 
 			var configuration = HttpHostConfiguration.Create()
