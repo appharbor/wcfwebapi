@@ -26,7 +26,7 @@ namespace ContactManager
 
 		public string Self
 		{
-			get { return string.Format(CultureInfo.CurrentCulture, "contact/{0}", this.ContactId); }
+			get { return string.Format(CultureInfo.CurrentCulture, "/contact/{0}", this.ContactId); }
 			set { }
 		}
 	}
