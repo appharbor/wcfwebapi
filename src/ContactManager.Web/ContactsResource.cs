@@ -25,7 +25,8 @@ namespace ContactManager.Web
 		[WebInvoke(Method = "POST", UriTemplate = "")]
 		public Contact Post(Contact contact)
 		{
-			return null;
+			_repository.Post(contact);
+			return contact;
 		}
 	}
 }
