@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using Microsoft.ApplicationServer.Http.Activation;
 using Microsoft.ApplicationServer.Http.Description;
+using StructureMap;
 
 namespace ContactManager.Web
 {
@@ -34,7 +35,10 @@ namespace ContactManager.Web
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 
-			var configuration = HttpHostConfiguration.Create();
+			var container = new Container();
+
+			var configuration = HttpHostConfiguration.Create()
+				.SetResourceFactory((t, i, m) => container.GetInstance(t), (i, o) => { });
 
 			RouteTable.Routes.MapServiceRoute<ContactsResource>("contacts", configuration);
 		}
