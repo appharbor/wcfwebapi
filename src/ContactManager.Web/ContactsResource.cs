@@ -1,4 +1,7 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+using System.ServiceModel.Web;
 using ContactManager.Web.Infrastructure;
 
 namespace ContactManager.Web
@@ -11,6 +14,12 @@ namespace ContactManager.Web
 		public ContactsResource(IContactRepository repository)
 		{
 			_repository = repository;
+		}
+
+		[WebGet(UriTemplate = "")]
+		public List<Contact> Get()
+		{
+			return _repository.GetAll();
 		}
 	}
 }
