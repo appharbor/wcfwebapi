@@ -28,10 +28,11 @@ namespace ContactManager.Web
 		public HttpResponseMessage Post(Contact contact)
 		{
 			_repository.Post(contact);
-			return new HttpResponseMessage<Contact>(contact)
+			var response = new HttpResponseMessage<Contact>(contact)
 			{
 				StatusCode = HttpStatusCode.Created,
 			};
+			return response;
 		}
 	}
 }
