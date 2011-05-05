@@ -28,10 +28,7 @@ namespace ContactManager.Web
 		public HttpResponseMessage Post(Contact contact)
 		{
 			_repository.Post(contact);
-			var response = new HttpResponseMessage<Contact>(contact)
-			{
-				StatusCode = HttpStatusCode.Created,
-			};
+			var response = new HttpResponseMessage<Contact>(contact, HttpStatusCode.Created);
 			return response;
 		}
 	}
