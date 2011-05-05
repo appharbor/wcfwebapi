@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using ContactManager.Web.Infrastructure;
 using Microsoft.ApplicationServer.Http.Activation;
 using Microsoft.ApplicationServer.Http.Description;
 using StructureMap;
@@ -36,6 +37,11 @@ namespace ContactManager.Web
 			RegisterRoutes(RouteTable.Routes);
 
 			var container = new Container();
+			container.Configure(x =>
+			{
+				x.For<IContactRepository>()
+					.Use<ContactRepository>();
+			});
 
 			var configuration = HttpHostConfiguration.Create()
 				.SetResourceFactory((t, i, m) => container.GetInstance(t), (i, o) => { });
