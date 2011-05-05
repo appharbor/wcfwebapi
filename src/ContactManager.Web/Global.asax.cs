@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.ApplicationServer.Http.Activation;
 
 namespace ContactManager.Web
 {
@@ -31,6 +32,7 @@ namespace ContactManager.Web
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
+			RouteTable.Routes.MapServiceRoute<ContactsResource>("contacts");
 		}
 	}
 }
