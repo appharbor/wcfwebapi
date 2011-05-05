@@ -17,6 +17,7 @@ namespace ContactManager.Web.Infrastructure
 				string.Format(@"sisodb:provider=Sql2008||plain:{0}", connectionString));
 			var factory = new SisoDbFactory();
 			_database = factory.CreateDatabase(connectionInfo);
+			_database.CreateIfNotExists();
 		}
 
 		public void Update(Contact updatedContact)
