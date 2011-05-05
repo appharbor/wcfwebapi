@@ -101,7 +101,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.htm" />
     <Content Include="Global.asax" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\Image1.png" />
+    <Content Include="Images\Image2.png" />
+    <Content Include="Images\Image3.png" />
+    <Content Include="Images\Image4.png" />
+    <Content Include="Images\Image5.png" />
+    <Content Include="Images\Image6.png" />
+    <Content Include="Images\Image7.png" />
+    <Content Include="main.css" />
+    <Content Include="Scripts\jquery-1.5.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.2.js" />
+    <Content Include="Scripts\jquery-1.5.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.9.js" />
+    <Content Include="Scripts\jquery-ui-1.8.9.min.js" />
+    <Content Include="Scripts\jquery-ui.css" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery.tmpl.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
