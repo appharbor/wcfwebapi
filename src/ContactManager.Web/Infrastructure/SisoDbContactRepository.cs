@@ -1,6 +1,7 @@
-﻿using System.Web.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web.Configuration;
 using SisoDb;
 
 namespace ContactManager.Web.Infrastructure
@@ -32,7 +33,10 @@ namespace ContactManager.Web.Infrastructure
 
 		public List<Contact> GetAll()
 		{
-			throw new NotImplementedException();
+			using (var session = _database.CreateUnitOfWork())
+			{
+				return session.GetAll<Contact>().ToList();
+			}
 		}
 
 		public void Post(Contact contact)
