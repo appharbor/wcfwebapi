@@ -14,7 +14,7 @@ namespace ContactManager.Web
 
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
-			return SendAsync(request, cancellationToken)
+			return base.SendAsync(request, cancellationToken)
 				.ContinueWith(x =>
 			{
 				var response = x.Result;
