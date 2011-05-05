@@ -4,10 +4,13 @@
 
 namespace ContactManager
 {
+	using System;
 	using System.Globalization;
 
 	public class Contact
 	{
+		public Guid SisoId { get; set; }
+
 		public int ContactId { get; set; }
 
 		public string Name { get; set; }
